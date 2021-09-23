@@ -1,9 +1,11 @@
 // lista 1 atv 06
 programa
 {
+
 inclua biblioteca Matematica --> mat
 	funcao inicio()
 	{
+		
 		inteiro x1, y1, x2, y2
 		real d
 		escreva("digite o ponto x1: ")
@@ -13,8 +15,10 @@ inclua biblioteca Matematica --> mat
 		escreva("digite o ponto x2: ")
 		leia(x2)
 		escreva("digite o ponto y2: ")
-		leia(y2)
-		d = mat.raiz(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1)), 2.0)
+		leia(y2)	
+
+		d = mat.arredondar(mat.raiz(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1)), 2), 1)
+
 		escreva(d)
 	}
 }
@@ -23,7 +27,7 @@ inclua biblioteca Matematica --> mat
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 0; 
+ * @POSICAO-CURSOR = 167; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

@@ -5,6 +5,7 @@ programa
 	funcao inicio()
 	{
 		inteiro A, B, C, R, S, D
+		
 		escreva("digite o primeiro valor: ")
 		leia(A)
 		escreva("digite o segundo valor: ")
@@ -12,10 +13,15 @@ programa
 		escreva("digite o terceiro valor: ")
 		leia(C)
 
+		
+
 		R = (A+B)*(A+B)
 		S = (B+C)*(B+C)
 		D = (R+S)/2
+
+		
 		escreva(D)
+		
 		}
 	
 }
@@ -24,7 +30,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 0; 
+ * @POSICAO-CURSOR = 230; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

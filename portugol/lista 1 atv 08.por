@@ -7,9 +7,13 @@ programa
 		real custoFabrica, pDistribuidor, pImpostos, custoFinal
 		escreva("escreva o valor de fábrica: ")
 		leia(custoFabrica)
-		pDistribuidor = (custoFabrica*0.28)
-		pImpostos = (custoFabrica*0.45)
+
+
+		pDistribuidor = custoFabrica*0.28
+		pImpostos = custoFabrica*0.45
 		custoFinal = custoFabrica + pDistribuidor + pImpostos
+
+		
 		escreva("O valor final ficará por: "+ custoFinal)
 		
 		
@@ -20,7 +24,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 0; 
+ * @POSICAO-CURSOR = 150; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

@@ -7,10 +7,17 @@ programa
 		inteiro horas, minutos, segundos
 		escreva("diga quantos segundos durou o evento: ")
 		leia(segundos)
+		
+		
 		horas = segundos/3600
 		minutos = (segundos%3600)/60
 		segundos = (segundos%3600)%60
+
+		
 		escreva("O evento durará: " + horas + " horas, " + minutos + " minutis e " + segundos + " segundos.")
+
+
+	
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -18,7 +25,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 27; 
+ * @POSICAO-CURSOR = 355; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
