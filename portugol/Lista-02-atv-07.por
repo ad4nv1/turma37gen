@@ -1,24 +1,23 @@
-// lista 1 atv 05
+//Lista-02-atv-07
 programa
 {
 	
 	funcao inicio()
 	{
-		
-		real nota1, nota2, nota3, media
-		
-		escreva("digite a primeira nota: ")
-		leia(nota1)
-		escreva("digite a segunda nota: ")
-		leia(nota2)
-		escreva("digite a terceira nota: ")
-		leia(nota3)
+		real base, altura, area
+		escreva("digite o valor da base: ")
+		leia(base)
+		escreva("digite o valor da altura: ")
+		leia(altura)
 
-		
-		media = ((nota1*2)+(nota2*3)+(nota3*5))/10
-		
-		
-		escreva(media)
+		se(base > 0 e altura > 0){
+			area = (base*altura)/2
+			escreva("o valor da área é: " + area)
+		}senao se(base<=0){
+			escreva("valor da base inválido")
+		}senao{
+			escreva("valor da altura inválido")
+		}
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -26,7 +25,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 179; 
+ * @POSICAO-CURSOR = 2; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

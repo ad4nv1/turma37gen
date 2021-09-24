@@ -1,24 +1,19 @@
-// lista 1 atv 05
+//Lista-02-atv-08
 programa
 {
 	
 	funcao inicio()
 	{
+		real numero
+		escreva("digite um numero: ")
+		leia(numero)
 		
-		real nota1, nota2, nota3, media
-		
-		escreva("digite a primeira nota: ")
-		leia(nota1)
-		escreva("digite a segunda nota: ")
-		leia(nota2)
-		escreva("digite a terceira nota: ")
-		leia(nota3)
-
-		
-		media = ((nota1*2)+(nota2*3)+(nota3*5))/10
-		
-		
-		escreva(media)
+		se(numero > 100){
+			escreva("Valor: " + numero)
+		}senao{
+			numero = 0.0
+			escreva("Valor: " + numero)			
+		}
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -26,7 +21,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 179; 
+ * @POSICAO-CURSOR = 235; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

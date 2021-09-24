@@ -1,24 +1,26 @@
-// lista 1 atv 05
+// Lista-02-atv-01
 programa
 {
 	
 	funcao inicio()
 	{
-		
-		real nota1, nota2, nota3, media
-		
-		escreva("digite a primeira nota: ")
-		leia(nota1)
-		escreva("digite a segunda nota: ")
-		leia(nota2)
-		escreva("digite a terceira nota: ")
-		leia(nota3)
+		real P, E, M
 
-		
-		media = ((nota1*2)+(nota2*3)+(nota3*5))/10
-		
-		
-		escreva(media)
+		escreva("digite o peso: ")
+		leia(P)
+
+		se(P>50){
+			E = P - 50
+			M = E*4
+			escreva("Excesso de peso: " + E + "\n")
+			escreva("Multa a pagar: " + M)
+		}
+		senao{
+			E = 0
+			M = 0
+			escreva("Excesso de peso: " + E + "\n")
+			escreva("Multa a pagar: " + M)
+		}
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -26,7 +28,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 179; 
+ * @POSICAO-CURSOR = 111; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
