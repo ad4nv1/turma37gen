@@ -4,25 +4,30 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro quantidadeHabitantes=0, salario=0,  quantidadeFilhos=0, maiorSalario=0
+		inteiro quantidadeHabitantes=0, salario=0,  quantidadeFilhos=0, maiorSalario=0 
 		real percentual=0.0, totalSalario=0.0, totalFilhos=0.0
 		escreva("quantas pessoas participarão da pesquisa: ")
 		leia(quantidadeHabitantes)
 
-		para(inteiro i=0; i<quantidadeHabitantes; i++){
-			escreva("qual o salário do cidadão " + (i+1) +": ")
+		para( inteiro i=1; i<=quantidadeHabitantes; i++){
+			escreva("qual o salário do cidadão " + i +": ")
 			leia(salario)
-			totalSalario+=salario
-			escreva("quantos filhos tem o cidadão " + (i+1)+": ")
+			
+			totalSalario += salario // totalSalario = totalSalario+salario
+		
+			escreva("quantos filhos tem o cidadão " + i +": ")
 			leia(quantidadeFilhos)
-			totalFilhos+=quantidadeFilhos
+			
+			totalFilhos += quantidadeFilhos  // totalFilhos = totalFilhos + quantidadeFilhos
+			           
 			se(salario > maiorSalario){
 				maiorSalario = salario
 			}
 			se(salario<=100){
-				percentual++
+				percentual++ // percentual = percentual + 1 -> percentual = 1 
 			}	
 		}
+
 		escreva("A média salarial da população é: " + (totalSalario/quantidadeHabitantes)+"\n")
 		escreva("A média de filhos da população é: " + (totalFilhos/quantidadeHabitantes)+"\n")
 		escreva("o maior salário é: "+ maiorSalario+"\n")
@@ -41,7 +46,7 @@ d) percentual de pessoas com salário até R$100,00.okok*/
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2; 
+ * @POSICAO-CURSOR = 404; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
