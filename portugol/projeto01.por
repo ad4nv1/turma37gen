@@ -123,12 +123,12 @@ programa
 			para (inteiro i=0; i<10; i++){
 						se(loja[i][4]!= "0"){
 							escreva("COD: ",
-							loja[i][0],"  PRODUTO: ",
-							loja[i][1], 
-							"  ",loja[i][2],
-							"  QTD ESTOQUE: ",loja[i][3],
-							"  QTD SELECIONADA: ",loja[i][4],"\n")
-							}
+							loja[i][0] ,"  PRODUTO: ",
+							loja[i][1] , 
+							"  ", loja[i][2] ,
+							"  QTD ESTOQUE: ", loja[i][3] ,
+							"  QTD SELECIONADA: ", loja[i][4] ,"\n")
+							} 
 			}
 			escreva("\n")
 			escreva("*****************************************************************\n")
@@ -141,9 +141,9 @@ programa
 			}
 			}enquanto(loop)
 			para (inteiro i=0; i<10; i++){
-				valorCompra = tp.cadeia_para_real(loja[i][2])*tp.cadeia_para_real(loja[i][4])
-				loja[i][3] = tp.real_para_cadeia(tp.cadeia_para_real(loja[i][3])-tp.cadeia_para_real(loja[i][4]))
-				totalCompra+=valorCompra
+				valorCompra = tp.cadeia_para_real(loja[i][2]) * tp.cadeia_para_real(loja[i][4])
+				loja[i][3] = tp.real_para_cadeia(tp.cadeia_para_real(loja[i][3]) - tp.cadeia_para_real(loja[i][4]))
+				totalCompra += valorCompra
 					
 			}
 			
@@ -152,16 +152,16 @@ programa
 			escreva("\n")
 			escreva("Valor total da compra: ", totalCompra, "\n")
 			escreva("\n")
-			imposto = totalCompra*0.09
+			imposto = totalCompra * 0.09
 			escreva("Terá ", imposto, " em imposto sobre a compra \n")
 			escreva("\n")
-			valor10Porcento = totalCompra*0.10
-			escreva("Caso o valor seja pago a vista terá: ", valor10Porcento, " de desconto\n")
+			valor10Porcento = totalCompra * 0.10
+			escreva("Caso o valor seja pago a vista terá: ", valor10Porcento , " de desconto\n")
 			escreva("\n")
-			escreva("Caso o valor seja pago no cartão terá: ", valor10Porcento, " de acrescimo\n")
+			escreva("Caso o valor seja pago no cartão terá: ", valor10Porcento , " de acrescimo\n")
 			escreva("\n")
-			aumento15 = totalCompra*0.15
-			escreva("Caso o valor seja pago no cartão em 2 vezes terá: ", aumento15, " de acrescimo\n")
+			aumento15 = totalCompra * 0.15
+			escreva("Caso o valor seja pago no cartão em 2 vezes terá: ", aumento15 , " de acrescimo\n")
 			escreva("\n")
 			escreva("*****************************************************************\n")
 			escreva("\n")
@@ -177,8 +177,7 @@ programa
 				}
 				
 			}
-			escreva("escolha uma opção de pagamento: 1- A Vista; 2 - Cartão; 3 - Três vezes no cartão \n")
-			leia(opcaoPagamento)
+			
 			escreva("\n")
 			escreva("*****************************************************************\n")
 			escreva("*****************************************************************\n")
@@ -186,15 +185,15 @@ programa
 			escreva("*****************************************************************\n")
 			escreva("*****************************************************************\n")
 			escreva("\n")
-			escreva("VALOR DA COMPRA S/IMPOSTO: ", totalCompra, "\n")
+			escreva("VALOR DA COMPRA S/IMPOSTO: ", totalCompra , "\n")
 			escreva ("------------------------------------------------------\n")
-			escreva("VALOR DA COMPRA C/IMPOSTO: ", (totalCompra+valor10Porcento), "\n")
+			escreva("VALOR DA COMPRA C/IMPOSTO: ", (totalCompra+imposto) , "\n")
 			escreva ("------------------------------------------------------\n")
 			escreva("ITEMS DA COMPRA: \n")
 			para (inteiro i=0; i<10; i++){
 						se(loja[i][4]!= "0"){
-							escreva("  PRODUTO: ",loja[i][1],"  PREÇO :",loja[i][2],
-							"  QTD COMPRADA: ",loja[i][4],"\n")
+							escreva("  PRODUTO: ", loja[i][1] ,"  PREÇO :", loja[i][2] ,
+							"  QTD COMPRADA: ", loja[i][4] ,"\n")
 							}
 			}
 			escreva ("------------------------------------------------------\n")
@@ -202,15 +201,15 @@ programa
 			escolha(opcaoPagamento){
 				caso 1:
 					escreva("PAGAMENTO A VISTA, DESCONTO DE 10%, VALOR FINAL: ",
-					((totalCompra+imposto)- valor10Porcento),"\n")
+					(( totalCompra+imposto ) - valor10Porcento ),"\n")
 					pare
 				caso 2:
 					escreva("PAGAMENTO NO CARTÃO, ACRESCIMO DE 10%, VALOR FINAL: ",
-					((totalCompra+imposto)+ valor10Porcento),"\n")
+					(( totalCompra + imposto ) + valor10Porcento ),"\n")
 					pare
 				caso 3:
 					escreva("PAGAMENTO NO CARTÃO EM 2X, ACRESCIMO DE 15%, VALOR DAS PARCELAS: ",
-					mat.arredondar((((totalCompra+imposto)+ aumento15)/2),2),"\n")
+					mat.arredondar(((( totalCompra+imposto ) + aumento15 ) / 2 ) , 2 ),"\n")
 
 			}
 			escreva("*****************************************************************\n")
@@ -226,9 +225,7 @@ programa
 			valor10Porcento = 0.0
 			aumento15=0.0
 			}
-			
-		}
-				
+		}		
 	}
 
 
@@ -238,7 +235,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7328; 
+ * @POSICAO-CURSOR = 283; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
