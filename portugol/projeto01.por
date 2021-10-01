@@ -30,7 +30,7 @@ programa
 
 			
 
-		cadeia nome, op, codCompra, confirma, novoProduto, confirmaCompra = ""
+		cadeia op, codCompra, confirmaCompra = ""
 		logico loop = verdadeiro
 		inteiro opcaoPagamento = 0
 		real totalCompra = 0.0, qtdCompra = 0.0, valorCompra = 0.0, imposto = 0.0, valor10Porcento = 0.0, aumento15=0.0
@@ -231,14 +231,14 @@ programa
 				
 	}
 
-}
+
 	
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7368; 
+ * @POSICAO-CURSOR = 7328; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
