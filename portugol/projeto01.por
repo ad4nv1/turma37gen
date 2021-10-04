@@ -30,7 +30,7 @@ programa
 
 			
 
-		cadeia op, codCompra, confirmaCompra = ""
+		cadeia op, codCompra, confirmaCompra = "",validacao = ""
 		logico loop = verdadeiro
 		inteiro opcaoPagamento = 0
 		real totalCompra = 0.0, qtdCompra = 0.0, valorCompra = 0.0, imposto = 0.0, valor10Porcento = 0.0, aumento15=0.0
@@ -89,7 +89,15 @@ programa
 			escreva ("Digite o código do produto que deseja comprar: ")
 			leia (codCompra)
 			codCompra = tx.caixa_alta(codCompra)
-			escreva ("CÓDIGO           PRODUTO          VALOR         ESTOQUE \n")
+			para(inteiro j =0;j<10;j++){
+			para(inteiro i=0;i<10;i++){
+				se(codCompra == loja[i][0]){
+					validacao = "SIM"
+				}
+			}
+			}
+			se(validacao == "SIM"){
+			escreva ("CÓDIGO     PRODUTO    VALOR      ESTOQUE \n")
 			para(inteiro i=0;i<10;i++){
 				se(codCompra == loja[i][0]){
 					escreva(
@@ -106,14 +114,19 @@ programa
 			leia (qtdCompra)
 			para(inteiro i=0;i<10;i++){
 					se(codCompra == loja[i][0]){
-						se(qtdCompra < tp.cadeia_para_real(loja[i][3])){
+						se(qtdCompra < tp.cadeia_para_real(loja[i][3]) e qtdCompra > 0){
 							loja[i][4] = tp.real_para_cadeia(qtdCompra)	
 						}
-						senao{
-							escreva ("Não possui estoque sufuciente. \n")
+						senao se(qtdCompra < 0){
+							escreva ("Não pode numero negativo. \n")
 							
+						}senao{
+							escreva ("Não possui estoque sufuciente. \n")
 						}
 					}
+				}
+			}senao {
+					escreva("PRODUTO NÃO ENCONTRADO!!\n")
 				}
 			escreva("\n")
 			escreva("*****************************************************************\n")
@@ -130,6 +143,8 @@ programa
 							"  QTD SELECIONADA: ", loja[i][4] ,"\n")
 							} 
 			}
+			
+			validacao = ""
 			escreva("\n")
 			escreva("*****************************************************************\n")
 			escreva("\n")
@@ -165,7 +180,7 @@ programa
 			escreva("\n")
 			escreva("*****************************************************************\n")
 			escreva("\n")
-			escreva("escolha uma opção de pagamento: 1- A Vista; 2 - Cartão; 3 - Três vezes no cartão \n")
+			escreva("escolha uma opção de pagamento: 1- A Vista; 2 - Cartão; 3 - Duas vezes no cartão \n")
 				leia(opcaoPagamento)
 			enquanto(loop){
 				se(opcaoPagamento == 1 ou opcaoPagamento == 2 ou opcaoPagamento == 3){
@@ -185,9 +200,9 @@ programa
 			escreva("*****************************************************************\n")
 			escreva("*****************************************************************\n")
 			escreva("\n")
-			escreva("VALOR DA COMPRA S/IMPOSTO: ", totalCompra , "\n")
+			escreva("VALOR DA COMPRA: ", totalCompra , "\n")
 			escreva ("------------------------------------------------------\n")
-			escreva("VALOR DA COMPRA C/IMPOSTO: ", (totalCompra+imposto) , "\n")
+			escreva("VALOR EM IMPOSTOS: ", imposto , "\n")
 			escreva ("------------------------------------------------------\n")
 			escreva("ITEMS DA COMPRA: \n")
 			para (inteiro i=0; i<10; i++){
@@ -201,20 +216,22 @@ programa
 			escolha(opcaoPagamento){
 				caso 1:
 					escreva("PAGAMENTO A VISTA, DESCONTO DE 10%, VALOR FINAL: ",
-					(( totalCompra+imposto ) - valor10Porcento ),"\n")
+					( totalCompra - valor10Porcento ),"\n")
 					pare
 				caso 2:
 					escreva("PAGAMENTO NO CARTÃO, ACRESCIMO DE 10%, VALOR FINAL: ",
-					(( totalCompra + imposto ) + valor10Porcento ),"\n")
+					( totalCompra  + valor10Porcento ),"\n")
 					pare
 				caso 3:
 					escreva("PAGAMENTO NO CARTÃO EM 2X, ACRESCIMO DE 15%, VALOR DAS PARCELAS: ",
-					mat.arredondar(((( totalCompra+imposto ) + aumento15 ) / 2 ) , 2 ),"\n")
+					mat.arredondar(((totalCompra + aumento15 ) / 2)  , 2 ),"\n")
 
 			}
 			escreva("*****************************************************************\n")
 			escreva("*****************************************************************\n")
 			escreva("OBRIGADO POR USAR NOSSOS SERVIÇOS\n")
+
+			
 			para (inteiro i=0; i<10; i++){
 				loja[i][4] = "0"
 			}
@@ -228,14 +245,13 @@ programa
 		}		
 	}
 
-
 	
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 283; 
+ * @POSICAO-CURSOR = 7090; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
