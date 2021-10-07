@@ -21,9 +21,5 @@ public class Conta {
 		return "Nome= " + Nome + ", Agencia= " + Agencia + ", Cpf= " + Cpf + ", Saldo da conta= " + Saldo  
 				+ " Ativo= " + Ativo ;
 	}
-	
-	
-	
-	
 
 }
