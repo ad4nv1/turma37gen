@@ -8,7 +8,7 @@ public class atv_02 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
-		int soma=0, maior=0, contador=0, totalJogadas=0;
+		int  maior=0, contador=0, totalJogadas=0;
 		int jogadas[] = new int[10];
 				for(int i=0; i<10;i++){
 					jogadas[i] = random.nextInt(6)+1;
