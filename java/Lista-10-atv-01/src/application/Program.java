@@ -27,9 +27,6 @@ public class Program {
 			int idade = sc.nextInt();
 			System.out.println("Ele é? 1-Cachorro 2-Cavalo 3-preguiça ");
 			int opAnimal = sc.nextInt();
-			System.out.println("qual o som ele emite: ");
-			
-			String som = sc.next();
 			if(opAnimal == 1) {
 				Animal ani = new Cachorro(nome, idade);
 				list.add(ani);
@@ -50,6 +47,7 @@ public class Program {
 		
 		sc.close();
 
+		
 	}
 
 }

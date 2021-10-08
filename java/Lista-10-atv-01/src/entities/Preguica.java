@@ -1,10 +1,7 @@
 package entities;
 
 public class Preguica extends Animal {
-	
-	
-	
-	
+		
 	public Preguica(String nome, int idade) {
 		super(nome, idade);
 		
@@ -17,7 +14,7 @@ public class Preguica extends Animal {
 	
 	@Override
 	public String som() {
-		return "auauauau";
+		return "zzzzzzzzz";
 	}
 	
 	
