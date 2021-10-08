@@ -33,6 +33,10 @@ public class Animal {
 		return "";
 		
 	}
+	public String som() {
+		return "";
+		
+	}
 
 	
 	

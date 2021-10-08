@@ -31,21 +31,20 @@ public class Program {
 			
 			String som = sc.next();
 			if(opAnimal == 1) {
-				Animal ani = new Cachorro(nome, idade, som);
+				Animal ani = new Cachorro(nome, idade);
 				list.add(ani);
 			}else if(opAnimal == 2) {
-				Animal ani = new Cavalo(nome, idade, som);
+				Animal ani = new Cavalo(nome, idade);
 				list.add(ani);
 			}else if(opAnimal == 3) {
-				Animal ani = new Preguica(nome, idade, som);
+				Animal ani = new Preguica(nome, idade);
 				list.add(ani);
 			}
 			
 		}
 		
 		for(Animal ani : list) {
-			System.out.println(ani.getNome()+ani.getIdade() + ani.habilidade());
-			
+			System.out.println(ani.getNome()+ " "+ani.getIdade()+ " " + ani.habilidade());
 		}
 		
 		
