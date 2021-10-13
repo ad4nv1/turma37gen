@@ -18,11 +18,13 @@ public class Terceiro extends Clt{
 	public Terceiro(String matricula, String nome, int horasTrabalhadas, double valorHora, double adicional) {
 		super(matricula, nome, horasTrabalhadas, valorHora);
 		this.adicional = adicional;
-	}
-	
+	}     
+
 	@Override
 	public double salario() {
-		return super.salario()+adicional;
+		
+		return super.salario() + adicional;
 	}
+	
 	
 }

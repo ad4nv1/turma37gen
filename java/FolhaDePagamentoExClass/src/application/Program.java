@@ -18,7 +18,7 @@ public class Program {
 		n = sc.nextInt();
 		
 		for(int i=1;i<=n;i++) {
-			System.out.println("Dados do funcionário #"+n);
+			System.out.println("Dados do funcionário #"+i);
 			System.out.println("Nome: ");
 			String nome = sc.next();
 			System.out.println("matricula: ");
