@@ -21,8 +21,8 @@ public class Program {
 		for(int i=1; i<=n;i++) {
 			System.out.println("ANIMAL #"+i+ ": ");
 			System.out.println("Nome : ");
-			
-			String nome = sc.next();
+			sc.nextLine();
+			String nome = sc.nextLine();
 			System.out.println("Idade: ");
 			int idade = sc.nextInt();
 			System.out.println("Ele é? 1-Cachorro 2-Cavalo 3-preguiça ");
@@ -41,7 +41,14 @@ public class Program {
 		}
 		
 		for(Animal ani : list) {
-			System.out.println(ani.getNome()+ " "+ani.getIdade()+ " " + ani.habilidade());
+			System.out.println("seu nome é: "
+								+ ani.getNome()
+								+ ", idade: "
+								+ani.getIdade()
+								+ " anos, habilidade: " 
+								+ ani.habilidade()
+								+ " e Som emitido "
+								+ani.som());
 		}
 		
 		
