@@ -7,9 +7,8 @@ public class ContaEspecial extends Conta{
 	public ContaEspecial() {
 		
 	}
-	public ContaEspecial(int numero, String cpf, double limite) {
+	public ContaEspecial(int numero, String cpf) {
 		super(numero, cpf);
-		this.limite = limite;
 	}
 
 	public double getLimite() {
@@ -23,6 +22,15 @@ public class ContaEspecial extends Conta{
 	public void usarLimite(double valor) {
 		this.saldo += valor;
 		this.limite-=valor;
+	}
+	
+	@Override
+	public String toString() {
+		return "CONTA ESPECIAL!\n"
+				+ " Número: " + super.getNumero() + "\n"
+				+ " Cpf: "+ super.getCpf() + "\n"
+				+ " Saldo na conta: "+ saldo + "\n"
+				+ " Limite DE CREDITO RESTANTE " + limite;
 	}
 
 }

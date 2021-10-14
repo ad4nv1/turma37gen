@@ -4,9 +4,12 @@ public class ContaCorrente extends Conta{
 	
 	private int contadorTalao;
 
+	public ContaCorrente() {
+		
+	}
 	public ContaCorrente(int numero, String cpf, int contadorTalao) {
 		super(numero, cpf);
-		this.contadorTalao = contadorTalao;
+		
 	}
 	public ContaCorrente(int numero, String cpf) {
 		super(numero, cpf);
@@ -20,8 +23,17 @@ public class ContaCorrente extends Conta{
 		this.contadorTalao = contadorTalao;
 	}
 	
-	public void pediTalao(int quantidade) {
-		saldo-=(30*quantidade);
+	public void pediTalao() {
+		saldo-=(30*contadorTalao);
+	}
+	
+	@Override
+	public String toString() {
+		return "CONTA CORRENTE!\n"
+				+ " Número: " + super.getNumero() + "\n"
+				+ " Cpf: "+ super.getCpf() + "\n"
+				+ " Saldo na conta: "+ saldo + "\n"
+				+ " Quantidade de taloes adquiridos " + contadorTalao;
 	}
 
 }

@@ -7,9 +7,9 @@ public class ContaEstudantil extends Conta{
 	public ContaEstudantil() {
 	}
 	
-	public ContaEstudantil(int numero, String cpf, double limiteEstudanti) {
+	public ContaEstudantil(int numero, String cpf) {
 		super(numero, cpf);
-		this.limiteEstudanti = limiteEstudanti;
+		
 	}
 
 	public double getLimiteEstudanti() {
@@ -24,6 +24,15 @@ public class ContaEstudantil extends Conta{
 		this.saldo+=valor;
 		this.limiteEstudanti-=valor;
 		
+	}
+
+	@Override
+	public String toString() {
+		return "CONTA ESTUDANTIL!\n"
+				+ " Número: " + super.getNumero() + "\n"
+				+ " Cpf: "+ super.getCpf() + "\n"
+				+ " Saldo na conta: "+ saldo + "\n"
+				+ " Limite restante para emprestimo " + limiteEstudanti;
 	}
 	
 
