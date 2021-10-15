@@ -16,7 +16,7 @@ public class Program {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		List<Conta> list = new ArrayList<>();
-		
+
 		int op, numeroConta = 0, ano = 0;
 		String cpf = "";
 		double quantidadeSaque, quantidadeDeposito;
@@ -50,7 +50,7 @@ public class Program {
 			// =============================conta poupanca ================================
 
 			if (op == 1) {
-				
+
 				System.out.println("Numero da conta: ");
 				numeroConta = sc.nextInt();
 				System.out.println("Cpf do titular: ");
@@ -65,11 +65,10 @@ public class Program {
 					System.out.println("CONTA POUPANCA, MOVIMENTO #" + i);
 					System.out.println("Qual movimentação deseja realizar: D-debito C-credito");
 					char opMov = sc.next().toUpperCase().charAt(0);
-					while(true) {
-						if(opMov == 'C' || opMov == 'D') {
+					while (true) {
+						if (opMov == 'C' || opMov == 'D') {
 							break;
-						}
-						else {
+						} else {
 							System.out.println("Opção inválida!!");
 							System.out.println("Qual movimentação deseja realizar: D-debito C-credito");
 							opMov = sc.next().toUpperCase().charAt(0);
@@ -77,9 +76,10 @@ public class Program {
 					}
 					while (true) {
 						if (opMov == 'D' && conta.getSaldo() == 0) {
-							System.out.println("você não possui dinheiro na conta, apenas será possível depositar, digite: C-credito");
+							System.out.println(
+									"você não possui dinheiro na conta, apenas será possível depositar, digite: C-credito");
 							opMov = sc.next().toUpperCase().charAt(0);
-						} else  {
+						} else {
 							break;
 
 						}
@@ -88,30 +88,39 @@ public class Program {
 						System.out.println("quanto deseja sacar: ");
 						quantidadeSaque = sc.nextDouble();
 						while (true) {
-							if (quantidadeSaque > conta.getSaldo()) {
+							if (quantidadeSaque > conta.getSaldo() || quantidadeSaque <=0) {
 								System.out.println(
 										"quantidade excede o valor, digite um valor abaixo de " + conta.getSaldo());
-									quantidadeSaque = sc.nextDouble();
+								quantidadeSaque = sc.nextDouble();
 							} else {
 								break;
 							}
-							
+
 						}
 						conta.debito(quantidadeSaque);
 
 					} else if (opMov == 'C') {
 						System.out.println("quanto deseja depositar: ");
 						quantidadeDeposito = sc.nextDouble();
+						while(true) {
+							if(quantidadeDeposito>0) {
+								break;
+							}else {
+								System.out.println(" valor inválido: ");
+								System.out.println("quanto deseja depositar: ");
+								quantidadeDeposito = sc.nextDouble();
+							}
+						}
 						conta.credito(quantidadeDeposito);
 
 					}
 					System.out.println("quer fazer outra transação? S/N");
 					char opContinuar = sc.next().toUpperCase().charAt(0);
-					if(opContinuar == 'N') {
+					if (opContinuar == 'N') {
 						break;
 					}
 				}
-				
+
 				conta.correcao();
 				list.add(conta);
 				System.out.println(conta.getSaldo());
@@ -120,7 +129,6 @@ public class Program {
 			// ======================================conta corrente
 
 			else if (op == 2) {
-				
 
 				System.out.println("Numero da conta: ");
 				numeroConta = sc.nextInt();
@@ -134,11 +142,10 @@ public class Program {
 					System.out.println("CONTA CORRENTE, MOVIMENTO #" + i);
 					System.out.println("Qual movimentação deseja realizar: D-debito C-credito");
 					char opMov = sc.next().toUpperCase().charAt(0);
-					while(true) {
-						if(opMov == 'C' || opMov == 'D') {
+					while (true) {
+						if (opMov == 'C' || opMov == 'D') {
 							break;
-						}
-						else {
+						} else {
 							System.out.println("Opção inválida!!");
 							System.out.println("Qual movimentação deseja realizar: D-debito C-credito");
 							opMov = sc.next().toUpperCase().charAt(0);
@@ -146,7 +153,8 @@ public class Program {
 					}
 					while (true) {
 						if (opMov == 'D' && conta.getSaldo() == 0) {
-							System.out.println("você não possui dinheiro na conta, apenas será possível depositar, digite: C-credito");
+							System.out.println(
+									"você não possui dinheiro na conta, apenas será possível depositar, digite: C-credito");
 							opMov = sc.next().toUpperCase().charAt(0);
 						} else {
 							break;
@@ -157,7 +165,7 @@ public class Program {
 						System.out.println("quanto deseja sacar: ");
 						quantidadeSaque = sc.nextDouble();
 						while (true) {
-							if (quantidadeSaque > conta.getSaldo()) {
+							if (quantidadeSaque > conta.getSaldo() || quantidadeSaque <=0) {
 								System.out.println(
 										"quantidade excede o valor, digite um valor abaixo de " + conta.getSaldo());
 								quantidadeSaque = sc.nextDouble();
@@ -171,11 +179,20 @@ public class Program {
 						System.out.println("quanto deseja depositar: ");
 						quantidadeDeposito = sc.nextDouble();
 						conta.credito(quantidadeDeposito);
+						while(true) {
+							if(quantidadeDeposito>0) {
+								break;
+							}else {
+								System.out.println(" valor inválido: ");
+								System.out.println("quanto deseja depositar: ");
+								quantidadeDeposito = sc.nextDouble();
+							}
+						}
 
 					}
 					System.out.println("quer fazer outra transação? S/N");
 					char opContinuar = sc.next().toUpperCase().charAt(0);
-					if(opContinuar == 'N') {
+					if (opContinuar == 'N') {
 						break;
 					}
 				}
@@ -192,14 +209,13 @@ public class Program {
 				}
 				conta.setcontadorTalao(opTalao);
 				conta.pediTalao();
-				
+
 				list.add(conta);
 			}
 
 			// ==========================conta especial ===================================
 
 			else if (op == 3) {
-				
 
 				System.out.println("Numero da conta: ");
 				numeroConta = sc.nextInt();
@@ -213,11 +229,10 @@ public class Program {
 					System.out.println("CONTA ESPECIAL, MOVIMENTO #" + i);
 					System.out.println("Qual movimentação deseja realizar: D-debito C-credito L-limite");
 					char opMov = sc.next().toUpperCase().charAt(0);
-					while(true) {
-						if(opMov == 'C' || opMov == 'D' || opMov == 'L') {
+					while (true) {
+						if (opMov == 'C' || opMov == 'D' || opMov == 'L') {
 							break;
-						}
-						else {
+						} else {
 							System.out.println("Opção inválida!!");
 							System.out.println("Qual movimentação deseja realizar: D-debito C-credito L-limite");
 							opMov = sc.next().toUpperCase().charAt(0);
@@ -232,11 +247,11 @@ public class Program {
 
 						}
 					}
-					if(opMov == 'D') {
+					if (opMov == 'D') {
 						System.out.println("quanto deseja sacar: ");
 						quantidadeSaque = sc.nextDouble();
 						while (true) {
-							if (quantidadeSaque > conta.getSaldo()) {
+							if (quantidadeSaque > conta.getSaldo() || quantidadeSaque <=0) {
 								System.out.println(
 										"quantidade excede o valor, digite um valor abaixo de " + conta.getSaldo());
 								quantidadeSaque = sc.nextDouble();
@@ -245,20 +260,27 @@ public class Program {
 							}
 						}
 						conta.debito(quantidadeSaque);
-					}
-					else if(opMov == 'C') {
+					} else if (opMov == 'C') {
 						System.out.println("quanto deseja depositar: ");
 						quantidadeDeposito = sc.nextDouble();
 						conta.credito(quantidadeDeposito);
-					}
-					else if(opMov == 'L') {
+						while(true) {
+							if(quantidadeDeposito>0) {
+								break;
+							}else {
+								System.out.println(" valor inválido: ");
+								System.out.println("quanto deseja depositar: ");
+								quantidadeDeposito = sc.nextDouble();
+							}
+						}
+					} else if (opMov == 'L') {
 						System.out.println("quanto deseja usar: ");
 						double opLimite = sc.nextDouble();
 						while (true) {
 							if (opLimite > conta.getLimite()) {
 								System.out.println("escolha um valor inferior a " + conta.getLimite());
 								opLimite = sc.nextDouble();
-								
+
 							} else {
 								break;
 							}
@@ -267,7 +289,7 @@ public class Program {
 					}
 					System.out.println("quer fazer outra transação? S/N");
 					char opContinuar = sc.next().toUpperCase().charAt(0);
-					if(opContinuar == 'N') {
+					if (opContinuar == 'N') {
 						break;
 					}
 				}
@@ -276,23 +298,22 @@ public class Program {
 
 			// ========================Conta Empresa ===============
 			else if (op == 4) {
-				
+
 				System.out.println("Numero da conta: ");
 				numeroConta = sc.nextInt();
 				System.out.println("Cpf do titular: ");
 				cpf = sc.next();
 				ContaEmpresa conta = new ContaEmpresa(numeroConta, cpf);
-				System.out.println("você possui " + conta.getSaldo()+" no saldo");
-				System.out.println("você possui " + conta.getEmprestimoEmpresa()+" de limite p/ emprestimo");
+				System.out.println("você possui " + conta.getSaldo() + " no saldo");
+				System.out.println("você possui " + conta.getEmprestimoEmpresa() + " de limite p/ emprestimo");
 				for (int i = 1; i <= 10; i++) {
 					System.out.println("CONTA EMPRESA, MOVIMENTO #" + i);
 					System.out.println("Qual movimentação deseja realizar: D-debito C-credito E-Emprestimo");
 					char opMov = sc.next().toUpperCase().charAt(0);
-					while(true) {
-						if(opMov == 'C' || opMov == 'D' || opMov == 'E') {
+					while (true) {
+						if (opMov == 'C' || opMov == 'D' || opMov == 'E') {
 							break;
-						}
-						else {
+						} else {
 							System.out.println("Opção inválida!!");
 							System.out.println("Qual movimentação deseja realizar: D-debito C-credito  E-Emprestimo");
 							opMov = sc.next().toUpperCase().charAt(0);
@@ -311,88 +332,7 @@ public class Program {
 						System.out.println("quanto deseja sacar? ");
 						quantidadeSaque = sc.nextDouble();
 						while (true) {
-							if (quantidadeSaque > conta.getSaldo()) {
-								System.out.println("quantidade excede o valor, digite um valor abaixo de " + conta.getSaldo());
-								quantidadeSaque = sc.nextDouble();
-							} else {
-								break;
-							}
-						}
-					conta.debito(quantidadeSaque);
-					}
-					else if(opMov == 'C') {
-						System.out.println("quanto deseja depositar: ");
-						quantidadeDeposito = sc.nextDouble();
-						conta.credito(quantidadeDeposito);
-						
-					}
-					else if(opMov == 'E') {
-						System.out.println("Você tem "+conta.getEmprestimoEmpresa()+" livres para emprestimo");
-						System.out.println("quanto desenja usar desse valor: ");
-						double valorEmprestimo = sc.nextDouble();
-						while(true) {
-							if(valorEmprestimo> conta.getEmprestimoEmpresa()) {
-								System.out.println("excede o valor");
-								System.out.println("digite umvalor inferior a "+conta.getEmprestimoEmpresa());
-								valorEmprestimo = sc.nextDouble();
-								
-							}else {
-								break;
-							}
-						}
-						conta.pedirEmprestimo(valorEmprestimo);
-					}
-					System.out.println("quer fazer outra transação? S/N");
-					char opContinuar = sc.next().toUpperCase().charAt(0);
-					if(opContinuar == 'N') {
-						break;
-					}
-				}
-			
-			list.add(conta);
-			}
-			
-			
-			
-			// ===================================Conta Estudantil ===============
-			else if(op == 5) {
-				
-				System.out.println("Numero da conta: ");
-				numeroConta = sc.nextInt();
-				System.out.println("Cpf do titular: ");
-				cpf = sc.next();
-				ContaEstudantil conta = new ContaEstudantil(numeroConta, cpf);
-
-				System.out.println("você possui " + conta.getSaldo()+ " no saldo");
-				System.out.println("você possui " + conta.getLimiteEstudanti()+" de limite p/ emprestimo");
-				for (int i = 1; i <= 10; i++) {
-					System.out.println("CONTA ESTUDANTIL, MOVIMENTO #" + i);
-					System.out.println("Qual movimentação deseja realizar: D-debito C-credito E-Emprestimo");
-					char opMov = sc.next().toUpperCase().charAt(0);
-					while(true) {
-						if(opMov == 'C' || opMov == 'D' || opMov == 'E') {
-							break;
-						}
-						else {
-							System.out.println("Opção inválida!!");
-							System.out.println("Qual movimentação deseja realizar: D-debito C-credito  E-Emprestimo");
-							opMov = sc.next().toUpperCase().charAt(0);
-						}
-					}
-					while (true) {
-						if (opMov == 'D' && conta.getSaldo() == 0) {
-							System.out.println("você não possui dinheiro na conta, escolha:  C-credito E-Emprestimo");
-							opMov = sc.next().toUpperCase().charAt(0);
-						} else {
-							break;
-
-						}
-					}
-					if (opMov == 'D') {
-						System.out.println("quanto deseja sacar? ");
-						quantidadeSaque = sc.nextDouble();
-						while (true) {
-							if (quantidadeSaque > conta.getSaldo()) {
+							if (quantidadeSaque > conta.getSaldo() || quantidadeSaque <=0) {
 								System.out.println(
 										"quantidade excede o valor, digite um valor abaixo de " + conta.getSaldo());
 								quantidadeSaque = sc.nextDouble();
@@ -400,52 +340,144 @@ public class Program {
 								break;
 							}
 						}
-					conta.debito(quantidadeSaque);
-					}
-					else if(opMov == 'C') {
+						conta.debito(quantidadeSaque);
+					} else if (opMov == 'C') {
 						System.out.println("quanto deseja depositar: ");
 						quantidadeDeposito = sc.nextDouble();
 						conta.credito(quantidadeDeposito);
-						
-					}
-					else if(opMov == 'E') {
-						System.out.println("Você tem "+conta.getLimiteEstudanti()+" livres para emprestimo");
-						System.out.println("quanto desenja usar desse emprestimo: ");
-						double valorEmprestimo = sc.nextDouble();
 						while(true) {
-							if(valorEmprestimo> conta.getLimiteEstudanti()) {
-								System.out.println("excede o valor");
-								System.out.println("digite um valor inferior a "+conta.getLimiteEstudanti()+": ");
-								valorEmprestimo = sc.nextDouble();
-								
+							if(quantidadeDeposito>0) {
+								break;
 							}else {
+								System.out.println(" valor inválido: ");
+								System.out.println("quanto deseja depositar: ");
+								quantidadeDeposito = sc.nextDouble();
+							}
+						}
+
+					} else if (opMov == 'E') {
+						System.out.println("Você tem " + conta.getEmprestimoEmpresa() + " livres para emprestimo");
+						System.out.println("quanto desenja usar desse valor: ");
+						double valorEmprestimo = sc.nextDouble();
+						while (true) {
+							if (valorEmprestimo > conta.getEmprestimoEmpresa()) {
+								System.out.println("excede o valor");
+								System.out.println("digite umvalor inferior a " + conta.getEmprestimoEmpresa());
+								valorEmprestimo = sc.nextDouble();
+
+							} else {
 								break;
 							}
-						}conta.usarEstudantil(valorEmprestimo);
+						}
+						conta.pedirEmprestimo(valorEmprestimo);
 					}
 					System.out.println("quer fazer outra transação? S/N");
 					char opContinuar = sc.next().toUpperCase().charAt(0);
-					if(opContinuar == 'N') {
+					if (opContinuar == 'N') {
 						break;
 					}
 				}
-			
-			list.add(conta);
-				
+
+				list.add(conta);
 			}
-			else if(op == 6) {
+
+			// ===================================Conta Estudantil ===============
+			else if (op == 5) {
+
+				System.out.println("Numero da conta: ");
+				numeroConta = sc.nextInt();
+				System.out.println("Cpf do titular: ");
+				cpf = sc.next();
+				ContaEstudantil conta = new ContaEstudantil(numeroConta, cpf);
+
+				System.out.println("você possui " + conta.getSaldo() + " no saldo");
+				System.out.println("você possui " + conta.getLimiteEstudanti() + " de limite p/ emprestimo");
+				for (int i = 1; i <= 10; i++) {
+					System.out.println("CONTA ESTUDANTIL, MOVIMENTO #" + i);
+					System.out.println("Qual movimentação deseja realizar: D-debito C-credito E-Emprestimo");
+					char opMov = sc.next().toUpperCase().charAt(0);
+					while (true) {
+						if (opMov == 'C' || opMov == 'D' || opMov == 'E') {
+							break;
+						} else {
+							System.out.println("Opção inválida!!");
+							System.out.println("Qual movimentação deseja realizar: D-debito C-credito  E-Emprestimo");
+							opMov = sc.next().toUpperCase().charAt(0);
+						}
+					}
+					while (true) {
+						if (opMov == 'D' && conta.getSaldo() == 0) {
+							System.out.println("você não possui dinheiro na conta, escolha:  C-credito E-Emprestimo");
+							opMov = sc.next().toUpperCase().charAt(0);
+						} else {
+							break;
+
+						}
+					}
+					if (opMov == 'D') {
+						System.out.println("quanto deseja sacar? ");
+						quantidadeSaque = sc.nextDouble();
+						while (true) {
+							if (quantidadeSaque > conta.getSaldo() || quantidadeSaque <=0) {
+								System.out.println(
+										"quantidade excede o valor, digite um valor abaixo de " + conta.getSaldo());
+								quantidadeSaque = sc.nextDouble();
+							} else {
+								break;
+							}
+						}
+						conta.debito(quantidadeSaque);
+					} else if (opMov == 'C') {
+						System.out.println("quanto deseja depositar: ");
+						quantidadeDeposito = sc.nextDouble();
+						conta.credito(quantidadeDeposito);
+						while(true) {
+							if(quantidadeDeposito>0) {
+								break;
+							}else {
+								System.out.println(" valor inválido: ");
+								System.out.println("quanto deseja depositar: ");
+								quantidadeDeposito = sc.nextDouble();
+							}
+						}
+
+					} else if (opMov == 'E') {
+						System.out.println("Você tem " + conta.getLimiteEstudanti() + " livres para emprestimo");
+						System.out.println("quanto desenja usar desse emprestimo: ");
+						double valorEmprestimo = sc.nextDouble();
+						while (true) {
+							if (valorEmprestimo > conta.getLimiteEstudanti()) {
+								System.out.println("excede o valor");
+								System.out.println("digite um valor inferior a " + conta.getLimiteEstudanti() + ": ");
+								valorEmprestimo = sc.nextDouble();
+
+							} else {
+								break;
+							}
+						}
+						conta.usarEstudantil(valorEmprestimo);
+					}
+					System.out.println("quer fazer outra transação? S/N");
+					char opContinuar = sc.next().toUpperCase().charAt(0);
+					if (opContinuar == 'N') {
+						break;
+					}
+				}
+
+				list.add(conta);
+
+			} else if (op == 6) {
 				break;
-			}
-			else {
+			} else {
 				System.out.println("numero inálido!!");
 			}
 		}
 		
-		for(int i=0;i<list.size();i++) {
+		for (int i = 0; i < list.size(); i++) {
 			System.out.println("-----------------------------------");
 			System.out.println(list.get(i).toString());
 			System.out.println("-----------------------------------");
 		}
-		
+
 	}
 }
