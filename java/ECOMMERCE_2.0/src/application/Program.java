@@ -80,7 +80,7 @@ public class Program {
 								}
 							}
 							if (contCodProduto > 0) {
-								System.out.println("Produto já cadastrado!! Tecle ENTER para prosseguir. ");
+								System.out.println("Produto já cadastrado!!");
 								//continue;
 								
 							} else {
@@ -244,7 +244,7 @@ public class Program {
 							int qtProduto = sc.nextInt();
 							for (Produto prod : list) {
 								if (prod.getCodigo().equals(codProduto)) {
-									if (qtProduto > prod.getEstoque() || qtProduto <= 0) {
+									if (qtProduto > prod.getEstoque() || qtProduto < 0) {
 										System.out.println("quantidade inválida!!");
 									} else {
 										prod.setCarrinho(qtProduto);
@@ -266,6 +266,8 @@ public class Program {
 										System.out.println(prod.toString() + "                 " + prod.getCarrinho());
 									}
 								}
+							}else {
+								System.out.println("CARRINHO VAZIO!!");
 							}
 							System.out.println("Quer continuar comprando? S/N");
 							opCompra = sc.next().toUpperCase().charAt(0);
@@ -300,8 +302,8 @@ public class Program {
 					limpa();
 					System.out.println("VALOR TOTAL DA SUA COMPRA: " + totalDaCompra);
 					System.out.println("ESCOLHA UMA OPÇÃO: ");
-					System.out.println("1- A VISTA (10% DE **DESCONTO**  (10% DE AUMENTO)");
-					System.out.println("2- NO CARTÃO DE CRÉDITO");
+					System.out.println("1- A VISTA (10% DE **DESCONTO**  ");
+					System.out.println("2- NO CARTÃO DE CRÉDITO (10% DE AUMENTO)");
 					System.out.println("3- 2 VEZES NO CARTÃO (15% DE AUMENTO)");
 					char opPagamento = sc.next().charAt(0);
 					while (true) {
@@ -309,8 +311,8 @@ public class Program {
 							break;
 						} else {
 							System.out.println("OPÇÃO DE PAGAMENTO INVÁLIDA \n DIGITE UMA DAS OPÇÕES: ");
-							System.out.println("1- A VISTA (10% DE **DESCONTO**  (10% DE AUMENTO)");
-							System.out.println("2- NO CARTÃO DE CRÉDITO");
+							System.out.println("1- A VISTA (10% DE **DESCONTO**)");
+							System.out.println("2- NO CARTÃO DE CRÉDITO (10% DE AUMENTO)");
 							System.out.println("3- 2 VEZES NO CARTÃO (15% DE AUMENTO)");
 							opPagamento = sc.next().charAt(0);
 						}
@@ -330,6 +332,12 @@ public class Program {
 						System.out.println(nota.notaFiscal(totalDaCompra, pagamento.imposto(totalDaCompra), '3',
 								pagamento.parcelado(totalDaCompra)));
 						break;
+					}
+					System.out.println("PRODUTOS COMPRADOS:");
+					for(Produto prod : list) {
+						if(prod.getCarrinho() != 0) {
+							System.out.println("PRODUTO: "+ prod.getProduto() + " qtd.: "+prod.getCarrinho());
+						}
 					}
 					}else {
 						System.out.println("VOCÊ NÃO COMPROU NADA!!!");
