@@ -22,7 +22,7 @@ import com.example.postagem.repository.PostagemRepository;
 @RestController
 @RequestMapping("/postagens")
 @CrossOrigin("*")
-public class PostagemControler {
+public class PostagemController {
 	
 	
 	
@@ -37,9 +37,10 @@ public class PostagemControler {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<Postagem>> findById(@PathVariable("id") Long id){
-		return ResponseEntity.ok(repository.findById(id));
-	}	
+	public ResponseEntity<Postagem> findById(@PathVariable("id") Long id){
+		return ResponseEntity.ok(repository.findById(id).get());
+	}
+	
 	
 	
 	@GetMapping("/porTitulo/{titulo}")
