@@ -8,7 +8,7 @@ import com.example.postagem.model.Tema;
 
 public interface TemaRepository extends JpaRepository<Tema, Long>{
 	
-	public List<Tema> findAllByDescricaoConteiningIgoreCase(String descricao);
-	
+	public List<Tema> findAllByDescricaoContainingIgnoreCase(String descricao);
 
+	
 }
